@@ -1,0 +1,12 @@
+# Versions used for the published results (Python 3.13). Newer versions are likely to work.
+numpy==2.5.3
+pandas==3.0.5
+pyfixest==0.60.0
+scipy==1.18.1
+geopandas==1.2.0
+shapely==2.2.0
+pyproj==3.8.0
+xarray==2026.9.0
+netCDF4==1.7.5
+h5netcdf==1.8.1
+requests==2.34.2

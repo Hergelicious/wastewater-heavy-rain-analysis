@@ -1,0 +1,13 @@
+# Fill in authors and the DOI after acceptance (left blank for double-blind review).
+cff-version: 1.2.0
+message: "If you use this code, please cite the article and this archive."
+title: "Code for: Heavy rain degrades wastewater treatment, and exposure is projected to rise worldwide"
+version: "1.0.0"
+date-released: "2026-10-22"
+license: MIT
+authors:
+  - family-names: "[Author]"
+    given-names: "[Name]"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.[to be assigned]"
