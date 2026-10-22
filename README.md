@@ -1,8 +1,4 @@
-# Heavy rain and municipal wastewater treatment: code
-
-Code for the article *Heavy rain degrades wastewater treatment, and exposure is projected to rise worldwide*.
-It downloads the public data and reproduces every estimate in the article and its Supplementary Information.
-Figure-drawing scripts are not included; the plotted values are provided in the article's Source Data file.
+# Heavy rain and municipal wastewater treatment
 
 ## Layout
 
@@ -16,11 +12,10 @@ Figure-drawing scripts are not included; the plotted values are provided in the 
 
 Python 3.10 or newer with the packages in `requirements.txt` (`pip install -r requirements.txt` into an existing
 environment works; no separate environment is required). The national run needs about 8 GB of RAM and about 10 GB of disk while the DMR files are processed.
-Run one heavy model script at a time: the panel models and the CMIP6 extraction each use most of 8 GB.
 
 ## Data
 
-All inputs are public. The pipeline downloads the EPA and Daymet data itself; place the others as shown.
+All inputs are public. The pipeline downloads the EPA and Daymet data itself
 
 | Source | Where it goes | Used for |
 |---|---|---|
@@ -77,8 +72,8 @@ python global/link_hydrowaste.py
 python global/transfer_effects.py
 python global/transfer_vcov.py
 python global/level_difference.py
-python global/cmip6_heavy_rain.py          # about 2.5 h
-python global/global_projection.py         # NOCLIP=1 TAG=_noclip for the sensitivity run without clipping
+python global/cmip6_heavy_rain.py          
+python global/global_projection.py         
 python global/global_stats.py
 python global/us_consistency.py
 python global/global_sensitivity.py
@@ -86,21 +81,7 @@ python global/global_sensitivity.py
 
 Every step caches its output, so a rerun skips finished work. `--state OH` gives a quick one-state test of the pipeline.
 
-## Where each result comes from
 
-| Article item | Script | Output |
-|---|---|---|
-| Fig. 1; Fig. 2a–c; Fig. 3a; Fig. 4; Extended Data Fig. 2; Supplementary Tables 1 and 9 (Poisson, storm intensity) | `us/analysis/upgrade_models.py`, `fdr_and_robust_summary.py` | `upgrades/model_results.csv`, `attributable.csv`, `fdr.csv` |
-| Extended Data Fig. 1; Supplementary Table 2 | `us/analysis/robust_inputs.py`, `robust_models.py` | `upgrades/robust_*.csv` |
-| Fig. 2d; Extended Data Fig. 3; Supplementary Table 3 | `us/analysis/transfer_tests.py` | `upgrades/transfer_tests_*.csv` |
-| Fig. 3b; Supplementary Table 7 | `us/analysis/capacity_test.py` | `upgrades/capacity_*.csv` |
-| Fig. 3c; Supplementary Tables 4 and 9 (storage) | `us/analysis/cso_event.py` with `cso_projects.csv` | `upgrades/cso_event.csv` |
-| Bypass results; Supplementary Table 9 | `us/analysis/bypass_mechanism.py` | `upgrades/bypass_*.csv` |
-| Extended Data Fig. 5 | `us/analysis/projection_shares.py`, `projections.py` | `upgrades/projection_shares.csv.gz`, `projections.csv` |
-| Supplementary Table 10; sample counts in the text | `us/analysis/dataflow.py`, `sample_counts.py` | `upgrades/dataflow.csv`, `sample_counts.csv` |
-| Fig. 5; Supplementary Note 1; Supplementary Table 5 | `england/*.py` | `out/england_results.csv`, `england_robust.csv`, `england_sampling.csv` |
-| Extended Data Table 1 | `global/transfer_effects.py`, `level_difference.py` | `out/transfer_effects.csv`, `level_difference.csv` |
-| Fig. 6; Extended Data Fig. 4; Supplementary Tables 6 and 8 | `global/*.py` | `out/global_summary*.csv`, `global_exposure.csv`, `global_sensitivity.csv` |
 
 ## Main specification
 
