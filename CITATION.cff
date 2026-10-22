@@ -6,8 +6,7 @@ version: "1.0.0"
 date-released: "2026-10-22"
 license: MIT
 authors:
-  - family-names: "[Author]"
-    given-names: "[Name]"
+  - family-names: "[Hagar H. Hassan and Ahmed Hassona Hassan]"
 identifiers:
-  - type: doi
+  - type: doi (Will be added)
     value: "10.5281/zenodo.[to be assigned]"
